@@ -1,0 +1,55 @@
+{
+  "name": "dsh-row-time",
+  "version": "1.0.0",
+  "description": "Inline per-row start time for the DSH conversation view — every row shows when that step began. Browser-only plugin, no host behaviour.",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dsh-plugin",
+    "client-plugin",
+    "web-plugin",
+    "chat-ui",
+    "timestamp",
+    "start-time",
+    "conversation"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.2-rc.1"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": []
+    }
+  },
+  "scripts": {
+    "test": "node test/run.mjs"
+  },
+  "author": "EliasKaslan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EliasKaslan/dsh-row-time.git"
+  },
+  "homepage": "https://github.com/EliasKaslan/dsh-row-time#readme",
+  "bugs": {
+    "url": "https://github.com/EliasKaslan/dsh-row-time/issues"
+  }
+}
