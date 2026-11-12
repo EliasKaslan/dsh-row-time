@@ -61,7 +61,7 @@ var ADAPTERS = [
 ```
 
 - 新版本把 chat 存储挪了 → **在数组头部加一个适配器**，其余代码不用碰。
-- 字段改名 → 只改 `startOfNode()` / `endOfNode()` 里的字段名。
+- 字段改名 → 只改 `startOfNode()` 里的字段名。
 - 属性改名 → 只改顶部 `SEL_*` 常量。
 
 渲染层是纯 DOM（不接管、不替换任何宿主 React 组件），所以宿主重渲染最多把角标刷掉，观察器会补回来。
@@ -83,12 +83,14 @@ cmd /c mklink /J %USERPROFILE%\.dsh\profiles\desktop\node_modules\dsh-row-time D
 
 刷新页面即生效。
 
+> ⚠️ **不要两种挂载方式同时用**：本包同时声明了 `dsh.bundle.patch`，所以也可以把它登记进 profile 的 `dsh.profile.bundles`（这种方式需要重启宿主才生效）。但**同一模块既有 bundle 登记、又在 `cordis.patch.yml` 里手写 `- insert:`** 时，插件管理器会因为"候选行不唯一"把它标成 `unaddressable`——插件照常工作，只是管理界面里无法再开关这一行。二选一即可。
+
 ## 自检
 
 浏览器控制台：
 
 ```js
-__dshRowTime.version          // "0.1.0"
+__dshRowTime.version          // "1.0.1"
 __dshRowTime.badges()         // 当前页面上角标数量，0 = 没取到数
 __dshRowTime.index()          // { byKey: Map, byCall: Map }，看索引里有没有东西
 __dshRowTime.rescan()         // 手动重扫
