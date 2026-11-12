@@ -1,6 +1,6 @@
 {
   "name": "dsh-row-time",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Inline per-row start time for the DSH conversation view — every row shows when that step began. Browser-only plugin, no host behaviour.",
   "keywords": [
     "dsh",

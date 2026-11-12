@@ -90,7 +90,7 @@ cmd /c mklink /J %USERPROFILE%\.dsh\profiles\desktop\node_modules\dsh-row-time D
 浏览器控制台：
 
 ```js
-__dshRowTime.version          // "1.0.1"
+__dshRowTime.version          // "1.0.0"
 __dshRowTime.badges()         // 当前页面上角标数量，0 = 没取到数
 __dshRowTime.index()          // { byKey: Map, byCall: Map }，看索引里有没有东西
 __dshRowTime.rescan()         // 手动重扫
