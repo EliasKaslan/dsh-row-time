@@ -7,7 +7,17 @@
 
 ## 兼容性
 
-- **已实测**：DSH `0.2.2-rc.1`（Windows 桌面版）——加载、显示、刷新均正常。
+| DSH 版本 | 状态 |
+| --- | --- |
+| `0.2.2-rc.1` | ✅ 实测通过（Windows 桌面版）——加载、显示、刷新正常 |
+| `0.2.2-rc.2` | ✅ 实测通过——**升级无需改代码** |
+
+`0.2.2-rc.1 → 0.2.2-rc.2` 的官方升级指南（`docs/upgrade-guide/v0.2.2-rc.1/`）共 19 条 break，逐条对照后与本插件用到的面**无交集**。实际复核结果：
+
+- **DOM 契约仍在**：`data-conversation-session`、`data-chat-node-key`、`data-chat-call-id`、`data-chat-flow-kind`、`data-chat-group-key`、`data-turn-tail`
+- **数据 seam 仍在**：`uiConversation.binding(binding).target('chat')`（rc.2 内部把引号写法改成了模板字符串，**target id 未变**）；快照仍是 `{ order, nodes.get(key) }`，`getSnapshot`/`subscribe` 接线不变
+- **时间字段仍在**：`callTime`、`stepStartTime`
+
 - **兼容策略**：本项目会**积极跟进最新的 DSH release**。宿主改动 DOM 契约或会话数据结构时，优先以「新增一条取数适配器 / 调整顶部选择器常量」的方式适配，不改渲染层与对外行为，因此升级通常只需少量代码或不需改动。
 - 声明的最低版本是 `0.2.2-rc.1`（不设上限，便于跟随后续 release）。若未来某个版本出现角标不显示，见下文「以后版本对不上时怎么改」。
 

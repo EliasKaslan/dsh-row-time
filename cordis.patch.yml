@@ -1,4 +1,4 @@
-// dsh-row-time：对话视图每行右侧常显该步的开始时间（本地时区）。
+# dsh-row-time：对话视图每行左上角常显该步的开始时间（本地时区 HH:MM:SS）。
 # 单行挂载；浏览器半边由 package.json 的 dsh.client 声明，随客户端模块系统投递。
 - insert:
     - id: row-time

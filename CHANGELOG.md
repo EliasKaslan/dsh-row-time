@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.1 — 2026-11-12
+
+兼容性发布，**无功能变更**。
+
+- 在 DSH `0.2.2-rc.2` 上实测通过：加载、显示正常，**升级无需改代码**。
+- 对照官方 `docs/upgrade-guide/v0.2.2-rc.1/`（描述 rc.1 → rc.2）全部 19 条 break，与本插件用到的面相交 **0 条**。
+- 复核通过：DOM 契约（`data-conversation-session` / `data-chat-node-key` / `data-chat-call-id` / `data-chat-flow-kind` / `data-chat-group-key` / `data-turn-tail`）、数据 seam（`binding().target('chat')`，rc.2 仅改引号写法、id 未变；快照 `{order, nodes}` 与 `getSnapshot`/`subscribe` 不变）、时间字段（`callTime` / `stepStartTime`）。
+- README 兼容性表补充 rc.2。
+- 修复：包内 `cordis.patch.yml` 首行误写成 `//`（YAML 里不是注释），会让「把本包装成 bundle」的安装方式解析失败；已改为 `#` 并更新注释措辞。
+
 ## 1.0.0 — 2026-11-12
 
 首个发布版本。
